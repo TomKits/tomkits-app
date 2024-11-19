@@ -1,10 +1,10 @@
-package com.neohamzah.tomkitsapp.ui.home
+package com.neohamzah.tomkitsapp.ui.scanDisease
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class ScanDiseaseViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
