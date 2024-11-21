@@ -19,5 +19,12 @@
     <string name="tanggal_scan">Tanggal Scan</string>
     <string name="gambar_scan">Gambar Scan</string>
     <string name="quality_tomato">Quality: Good</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="detail_deskripsi">Ini adalah contoh dari deskripsi penyakit yang ada ya ges ya</string>
+    <string name="detail_disease">Ini adalah contoh penyakit</string>
+    <string name="solusi">Solusi</string>
+    <string name="detail_solusi">Ini adalah contoh solusi dari penyakit yang dideteksi</string>
+    <string name="rekomendasi_produk">Rekomendasi Produk:</string>
+    <string name="nama_produk">Nama Produk</string>
 
 </resources>
