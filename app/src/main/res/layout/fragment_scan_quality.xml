@@ -4,19 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"
     tools:context=".ui.scanQuality.ScanQualityFragment">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@mipmap/ic_launcher_foreground"
+        android:contentDescription="@string/app_name"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_quality"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/gambar_scan"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_galery"
+        app:srcCompat="@drawable/ic_place_holder" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_galery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="32dp"
+        android:text="@string/gallery"
+        android:backgroundTint="@color/accentRed"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/ic_gallery"
+        app:iconGravity="textStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_camera"
+        app:layout_constraintBottom_toTopOf="@id/btn_diagnose" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:backgroundTint="@color/accentRed"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="16dp"
+        android:text="@string/camera"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/ic_camera"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toTopOf="@id/btn_diagnose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_galery" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_diagnose"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:padding="16dp"
+        android:text="@string/diagnose_disease"
+        android:backgroundTint="@color/accentRed"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/ic_scan_disease_white"
+        app:iconGravity="textStart"
+        app:iconPadding="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_result"
+        />
+
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:text="@string/quality_tomato"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="24sp"
+        android:layout_margin="16dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

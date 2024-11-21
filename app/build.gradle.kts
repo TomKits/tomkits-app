@@ -51,6 +51,7 @@ dependencies {
 
     // splash screen
     implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.activity)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
