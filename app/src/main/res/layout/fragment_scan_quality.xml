@@ -27,57 +27,70 @@
         app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_galery"
+        app:layout_constraintBottom_toTopOf="@id/group_btn_quality"
         app:srcCompat="@drawable/ic_place_holder" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_galery"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/group_btn_quality"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp"
-        android:paddingVertical="16dp"
-        android:paddingHorizontal="32dp"
-        android:text="@string/gallery"
-        android:backgroundTint="@color/accentRed"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/ic_gallery"
-        app:iconGravity="textStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_camera"
-        app:layout_constraintBottom_toTopOf="@id/btn_diagnose" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp"
-        android:backgroundTint="@color/accentRed"
-        android:paddingHorizontal="32dp"
-        android:paddingVertical="16dp"
-        android:text="@string/camera"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/ic_camera"
-        app:iconGravity="textStart"
-        app:layout_constraintBottom_toTopOf="@id/btn_diagnose"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_galery" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_diagnose"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="16dp"
-        android:padding="16dp"
-        android:text="@string/diagnose_disease"
-        android:backgroundTint="@color/accentRed"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/ic_scan_disease_white"
-        app:iconGravity="textStart"
-        app:iconPadding="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toTopOf="@id/tv_result"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|end">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_galery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginVertical="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_gravity=""
+                android:paddingVertical="16dp"
+                android:paddingHorizontal="32dp"
+                android:text="@string/gallery"
+                android:backgroundTint="@color/accentRed"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_gallery"
+                app:iconGravity="textStart" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="16dp"
+                android:backgroundTint="@color/accentRed"
+                android:paddingHorizontal="32dp"
+                android:paddingVertical="16dp"
+                android:text="@string/camera"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_camera"
+                app:iconGravity="textStart" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_diagnose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:padding="16dp"
+            android:text="@string/diagnose_quality"
+            android:backgroundTint="@color/accentRed"
+            app:cornerRadius="15dp"
+            app:icon="@drawable/ic_scan_quality_white"
+            app:iconGravity="textStart"
+            app:iconPadding="15dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_result"
