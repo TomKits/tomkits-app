@@ -10,5 +10,8 @@
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
     <string name="phone_number">Phone Number</string>
+    <string name="diagnose_disease">Diagnose Disease</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
 
 </resources>
