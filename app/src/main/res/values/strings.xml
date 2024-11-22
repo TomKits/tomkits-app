@@ -26,5 +26,11 @@
     <string name="detail_solusi">Ini adalah contoh solusi dari penyakit yang dideteksi</string>
     <string name="rekomendasi_produk">Rekomendasi Produk:</string>
     <string name="nama_produk">Nama Produk</string>
+    <string name="hey">Hey,</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="or_register_here">Or register here</string>
 
 </resources>
