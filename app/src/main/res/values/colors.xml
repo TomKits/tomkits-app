@@ -11,4 +11,6 @@
     <color name="accentRed">#E84546</color>
     <color name="accentGreen">#34A853</color>
     <color name="paleRed">#D8FF696B</color>
+    <color name="paleWhite">#FBEAE7</color>
+    <color name="mutedRed">#FF696A</color>
 </resources>
