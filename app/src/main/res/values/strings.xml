@@ -32,5 +32,11 @@
     <string name="register">Register</string>
     <string name="password">Password</string>
     <string name="or_register_here">Or register here</string>
+    <string name="create_password">Create password</string>
+    <string name="or_login_here">Or Login here</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_email">Enter email</string>
+    <string name="come_join_us">Come Join Us.</string>
+    <string name="hola">Hola!</string>
 
 </resources>
