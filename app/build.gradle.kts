@@ -52,8 +52,18 @@ dependencies {
     // splash screen
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.datastore.core.android)
+    implementation(libs.androidx.tracing.perfetto.handshake)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Logging Interceptor
+    implementation(libs.logging.interceptor)
+
+    implementation(libs.androidx.datastore.preferences)
 }
