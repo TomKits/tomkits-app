@@ -41,18 +41,18 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        setupAction()
+//        setupAction()
     }
 
-        private fun setupAction() {
-            val fragmentManager = supportFragmentManager
-            val profileFragment = ProfileFragment()
+//        private fun setupAction() {
+//            val fragmentManager = supportFragmentManager
+//            val profileFragment = ProfileFragment()
+//
+//            fragmentManager
+//                .beginTransaction()
+//                .replace(R.id.container, profileFragment, ProfileFragment::class.java.simpleName)
+//                .addToBackStack(null)
+//                .commit()
+//        }
 
-            fragmentManager
-                .beginTransaction()
-                .replace(R.id.container, profileFragment, ProfileFragment::class.java.simpleName)
-                .addToBackStack(null)
-                .commit()
-        }
-
-    }
+}
