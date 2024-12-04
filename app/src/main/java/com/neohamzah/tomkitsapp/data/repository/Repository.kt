@@ -41,6 +41,7 @@ class Repository private constructor(
                     val userModel = UserModel(
                         email = email,
                         token = accessToken,
+                        refreshToken = refreshToken,
                         isLogin = true
                     )
                     saveSession(userModel)
