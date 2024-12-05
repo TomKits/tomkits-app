@@ -19,8 +19,7 @@
         android:textColor="@color/white"
         android:textSize="56sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_sub_greeting"
-        />
+        app:layout_constraintBottom_toTopOf="@id/tv_sub_greeting" />
 
     <TextView
         android:id="@+id/tv_sub_greeting"
@@ -145,7 +144,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/et_username" />
 
-            <EditText
+            <com.neohamzah.tomkitsapp.custom.EmailEditText
                 android:id="@+id/et_email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -171,7 +170,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/et_email" />
 
-            <EditText
+            <com.neohamzah.tomkitsapp.custom.PasswordEditText
                 android:id="@+id/et_password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
