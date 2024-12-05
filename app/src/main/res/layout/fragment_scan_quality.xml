@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/group_btn_quality"
-        app:srcCompat="@drawable/ic_place_holder" />
+        app:srcCompat="@drawable/placeholder_tomato" />
 
     <LinearLayout
         android:id="@+id/group_btn_quality"

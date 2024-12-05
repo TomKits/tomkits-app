@@ -25,7 +25,7 @@ interface ApiService {
     ): Response<LoginResponse>
 
     @FormUrlEncoded
-    @POST("refresh")
+    @POST("auth/refresh")
     suspend fun refreshToken(
         @Field("refresh") refreshToken: String
     ): LoginResponse

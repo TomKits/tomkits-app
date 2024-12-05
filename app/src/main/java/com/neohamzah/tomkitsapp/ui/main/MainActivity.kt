@@ -12,7 +12,6 @@ import com.neohamzah.tomkitsapp.R
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.databinding.ActivityMainBinding
 import com.neohamzah.tomkitsapp.ui.authentication.RegisterActivity
-import com.neohamzah.tomkitsapp.ui.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
