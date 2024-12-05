@@ -2,11 +2,11 @@ package com.neohamzah.tomkitsapp.data.repository
 
 import androidx.lifecycle.liveData
 import com.google.gson.Gson
+import com.neohamzah.tomkitsapp.data.pref.UserModel
+import com.neohamzah.tomkitsapp.data.pref.UserPreference
+import com.neohamzah.tomkitsapp.data.remote.ApiService
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
-import com.neohamzah.tomkitsapp.data.pref.UserModel
-import com.neohamzah.tomkitsapp.data.remote.ApiService
-import com.neohamzah.tomkitsapp.data.pref.UserPreference
 import com.neohamzah.tomkitsapp.utils.Result
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException

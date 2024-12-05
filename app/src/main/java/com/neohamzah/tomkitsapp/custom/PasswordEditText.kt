@@ -2,9 +2,9 @@ package com.neohamzah.tomkitsapp.custom
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.AttributeSet
 import android.graphics.drawable.Drawable
 import android.text.InputType
+import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
