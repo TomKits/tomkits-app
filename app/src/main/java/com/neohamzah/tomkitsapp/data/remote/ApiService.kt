@@ -1,8 +1,8 @@
 package com.neohamzah.tomkitsapp.data.remote
 
-import com.neohamzah.tomkitsapp.data.model.LoginResponse
-import com.neohamzah.tomkitsapp.data.model.RegisterRequest
-import com.neohamzah.tomkitsapp.data.model.RegisterResponse
+import com.neohamzah.tomkitsapp.data.remote.response.LoginResponse
+import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
+import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Field

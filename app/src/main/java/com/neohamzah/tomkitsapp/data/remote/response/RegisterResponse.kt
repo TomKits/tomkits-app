@@ -1,4 +1,4 @@
-package com.neohamzah.tomkitsapp.data.model
+package com.neohamzah.tomkitsapp.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

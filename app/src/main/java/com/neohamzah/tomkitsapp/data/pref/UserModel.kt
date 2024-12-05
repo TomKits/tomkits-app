@@ -1,6 +1,6 @@
-package com.neohamzah.tomkitsapp.data.model
+package com.neohamzah.tomkitsapp.data.pref
 
-class UserModel (
+data class UserModel (
     val email: String,
     val token: String,
     val refreshToken: String,

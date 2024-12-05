@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.neohamzah.tomkitsapp.data.model.RegisterResponse
+import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
 import com.neohamzah.tomkitsapp.data.repository.Repository
 import com.neohamzah.tomkitsapp.utils.Result
 import kotlinx.coroutines.launch
