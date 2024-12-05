@@ -8,9 +8,7 @@ import com.neohamzah.tomkitsapp.di.Injection
 import com.neohamzah.tomkitsapp.ui.authentication.LoginViewModel
 import com.neohamzah.tomkitsapp.ui.authentication.RegisterViewModel
 import com.neohamzah.tomkitsapp.ui.main.MainViewModel
-import com.neohamzah.tomkitsapp.ui.scanDisease.ScanDiseaseFragment
 import com.neohamzah.tomkitsapp.ui.scanDisease.ScanDiseaseViewModel
-import com.neohamzah.tomkitsapp.ui.scanQuality.ScanQualityFragment
 import com.neohamzah.tomkitsapp.ui.scanQuality.ScanQualityViewModel
 
 class ViewModelFactory(
