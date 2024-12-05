@@ -1,19 +1,20 @@
-package com.neohamzah.tomkitsapp.data.model
+package com.neohamzah.tomkitsapp.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(
-	@SerializedName("message")
+	@field:SerializedName("message")
 	val message: String? = null,
 
-	@SerializedName("token")
+	@field:SerializedName("token")
 	val token: Token? = null
 )
 
 data class Token(
-	@SerializedName("access")
+
+	@field:SerializedName("access")
 	val access: String? = null,
 
-	@SerializedName("refresh")
+	@field:SerializedName("refresh")
 	val refresh: String? = null
 )

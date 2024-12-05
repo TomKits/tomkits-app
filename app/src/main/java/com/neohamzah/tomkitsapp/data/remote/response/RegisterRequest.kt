@@ -1,4 +1,4 @@
-package com.neohamzah.tomkitsapp.data.model
+package com.neohamzah.tomkitsapp.data.remote.response
 
 data class RegisterRequest(
     val username: String,

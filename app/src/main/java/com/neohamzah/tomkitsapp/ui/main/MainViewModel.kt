@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.neohamzah.tomkitsapp.data.model.UserModel
+import com.neohamzah.tomkitsapp.data.pref.UserModel
 import com.neohamzah.tomkitsapp.data.repository.Repository
 import kotlinx.coroutines.launch
 

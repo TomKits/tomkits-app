@@ -1,13 +1,12 @@
-package com.neohamzah.tomkitsapp.preference
+package com.neohamzah.tomkitsapp.data.pref
 
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
-import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.neohamzah.tomkitsapp.data.model.UserModel
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -34,22 +33,19 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             )
         }
     }
-    fun isLoggedIn(): Flow<Boolean> {
-        return dataStore.data.map { preferences ->
-            preferences[IS_LOGIN_KEY] ?: false
-        }
-    }
+
     suspend fun logout() {
         dataStore.edit { preferences ->
             preferences.clear() //
         }
     }
+
     companion object {
         @Volatile
         private var INSTANCE: UserPreference? = null
 
         private val EMAIL_KEY = stringPreferencesKey("email")
-        private val TOKEN_KEY = stringPreferencesKey("refreshToken")
+        private val TOKEN_KEY = stringPreferencesKey("token")
         private val REFRESH_TOKEN_KEY = stringPreferencesKey("refreshToken")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
 
