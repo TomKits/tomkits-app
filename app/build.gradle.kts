@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -54,6 +55,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.datastore.core.android)
     implementation(libs.androidx.tracing.perfetto.handshake)
+    implementation(libs.androidx.exifinterface)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

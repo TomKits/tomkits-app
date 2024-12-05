@@ -8,6 +8,10 @@ import com.neohamzah.tomkitsapp.di.Injection
 import com.neohamzah.tomkitsapp.ui.authentication.LoginViewModel
 import com.neohamzah.tomkitsapp.ui.authentication.RegisterViewModel
 import com.neohamzah.tomkitsapp.ui.main.MainViewModel
+import com.neohamzah.tomkitsapp.ui.scanDisease.ScanDiseaseFragment
+import com.neohamzah.tomkitsapp.ui.scanDisease.ScanDiseaseViewModel
+import com.neohamzah.tomkitsapp.ui.scanQuality.ScanQualityFragment
+import com.neohamzah.tomkitsapp.ui.scanQuality.ScanQualityViewModel
 
 class ViewModelFactory(
         private val repository: Repository,
@@ -24,6 +28,12 @@ class ViewModelFactory(
                 }
                 modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                     LoginViewModel(repository) as T
+                }
+                modelClass.isAssignableFrom(ScanDiseaseViewModel::class.java) -> {
+                    ScanDiseaseViewModel(repository) as T
+                }
+                modelClass.isAssignableFrom(ScanQualityViewModel::class.java) -> {
+                    ScanQualityViewModel(repository) as T
                 }
                 else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
             }
