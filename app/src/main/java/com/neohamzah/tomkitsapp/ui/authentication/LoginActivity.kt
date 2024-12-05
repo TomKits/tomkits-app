@@ -30,16 +30,16 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.btnLogin.setOnClickListener {
-            val email = binding.etUsername.text.toString().trim()
-            val password = binding.etEmail.text.toString().trim()
+            val email = binding.etLogemail.text.toString().trim()
+            val password = binding.etLogpassword.text.toString().trim()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.login(email, password)
             } else {
-                showToast("Email dan password tidak boleh kosong!")
+                showToast("Email and Password cannot be empty!")
             }
         }
-            binding.btnSignup.setOnClickListener {
+            binding.btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
@@ -51,12 +51,12 @@ class LoginActivity : AppCompatActivity() {
                 is Result.Loading -> showLoading(true)
                 is Result.Success -> {
                     showLoading(false)
-                    showToast("Login berhasil!")
+                    showToast("Login success!")
                     navigateToMain()
                 }
                 is Result.Error -> {
                     showLoading(false)
-                    showToast(result.error)
+                    showToast("Invalid email or Password")
                 }
             }
         }
