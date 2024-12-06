@@ -11,7 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.neohamzah.tomkitsapp.R
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.databinding.ActivityMainBinding
-import com.neohamzah.tomkitsapp.ui.authentication.RegisterActivity
+import com.neohamzah.tomkitsapp.ui.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getSession().observe(this) { user ->
             if (!user.isLogin) {
-                startActivity(Intent(this, RegisterActivity::class.java))
+                startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
             }
         }
