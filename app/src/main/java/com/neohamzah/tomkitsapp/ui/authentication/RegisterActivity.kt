@@ -32,7 +32,7 @@ class RegisterActivity : AppCompatActivity() {
             val username = binding.etUsername.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
-            git add 
+
             viewModel.register(username, email, password)
         }
 
