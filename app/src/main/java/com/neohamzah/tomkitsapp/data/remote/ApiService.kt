@@ -3,12 +3,17 @@ package com.neohamzah.tomkitsapp.data.remote
 import com.neohamzah.tomkitsapp.data.remote.response.LoginResponse
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
+import com.neohamzah.tomkitsapp.data.remote.response.UploadDiseaseResponse
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Header
 import retrofit2.http.Headers
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 
 
 interface ApiService {
@@ -24,11 +29,12 @@ interface ApiService {
         @Body requestBody: Map<String, String>
     ): Response<LoginResponse>
 
-    @FormUrlEncoded
-    @POST("auth/refresh")
-    suspend fun refreshToken(
-        @Field("refresh") refreshToken: String
-    ): LoginResponse
+    @Multipart
+    @POST("predict/disease")
+    suspend fun uploadDisease(
+        @Part file: MultipartBody.Part,
+        @Header("Authorization") token: String
+    ): UploadDiseaseResponse
 }
 
 

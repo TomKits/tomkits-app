@@ -6,6 +6,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.ExifInterface
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
@@ -34,8 +36,7 @@ fun getImageUri(context: Context): Uri {
             put(MediaStore.MediaColumns.RELATIVE_PATH, "Pictures/MyCamera/")
         }
         uri = context.contentResolver.insert(
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-            contentValues
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues
         )
     }
     return uri ?: getImageUriForPreQ(context)
@@ -46,9 +47,7 @@ private fun getImageUriForPreQ(context: Context): Uri {
     val imageFile = File(filesDir, "/MyCamera/$timeStamp.jpg")
     if (imageFile.parentFile?.exists() == false) imageFile.parentFile?.mkdir()
     return FileProvider.getUriForFile(
-        context,
-        "${BuildConfig.APPLICATION_ID}.fileprovider",
-        imageFile
+        context, "${BuildConfig.APPLICATION_ID}.fileprovider", imageFile
     )
 }
 
@@ -97,6 +96,19 @@ fun Bitmap.getRotatedBitmap(file: File): Bitmap {
         ExifInterface.ORIENTATION_ROTATE_270 -> rotateImage(this, 270F)
         ExifInterface.ORIENTATION_NORMAL -> this
         else -> this
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.M)
+fun isNetworkAvailable(context: Context): Boolean {
+    val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val networkCapabilities = connectivityManager.activeNetwork ?: return false
+    val activeNetwork = connectivityManager.getNetworkCapabilities(networkCapabilities) ?: return false
+    return when {
+        activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+        activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+        activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+        else -> false
     }
 }
 

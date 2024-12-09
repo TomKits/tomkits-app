@@ -38,5 +38,7 @@
     <string name="enter_email">Enter email</string>
     <string name="come_join_us">Come Join Us.</string>
     <string name="hola">Hola!</string>
+    <string name="strip">-</string>
+    <string name="confidence_score">90% contoh</string>
 
 </resources>

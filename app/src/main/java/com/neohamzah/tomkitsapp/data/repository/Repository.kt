@@ -36,12 +36,10 @@ class Repository private constructor(
             if (response.isSuccessful) {
                 response.body()?.let { loginResponse ->
                     val accessToken = loginResponse.token?.access ?: ""
-                    val refreshToken = loginResponse.token?.refresh ?: ""
 
                     val userModel = UserModel(
                         email = email,
                         token = accessToken,
-                        refreshToken = refreshToken,
                         isLogin = true
                     )
                     saveSession(userModel)
@@ -60,15 +58,7 @@ class Repository private constructor(
             emit(Result.Error("Exception: ${e.message ?: "Unknown error"}"))
         }
     }
-    fun refreshToken(refreshToken: String) = liveData {
-        try {
-            val response = apiService.refreshToken(refreshToken)
-            val newAccessToken = response.token?.access ?: ""
-            emit(Result.Success(newAccessToken))
-        } catch (e: HttpException) {
-            emit(Result.Error("Gagal memperbarui token"))
-        }
-    }
+
     private fun parseError(e: HttpException): String {
         val errorBody = e.response()?.errorBody()?.string()
         return if (!errorBody.isNullOrEmpty()) {

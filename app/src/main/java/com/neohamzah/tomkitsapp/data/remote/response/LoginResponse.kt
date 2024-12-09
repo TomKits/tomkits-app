@@ -6,15 +6,14 @@ data class LoginResponse(
 	@field:SerializedName("message")
 	val message: String? = null,
 
+	@field:SerializedName("error")
+	val error: String? = null,
+
 	@field:SerializedName("token")
 	val token: Token? = null
 )
 
 data class Token(
-
 	@field:SerializedName("access")
 	val access: String? = null,
-
-	@field:SerializedName("refresh")
-	val refresh: String? = null
 )

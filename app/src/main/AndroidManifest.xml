@@ -35,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.authentication.RegisterActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"

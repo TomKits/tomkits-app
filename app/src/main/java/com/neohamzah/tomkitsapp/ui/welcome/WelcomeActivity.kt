@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.neohamzah.tomkitsapp.databinding.ActivityWelcomeBinding
 import com.neohamzah.tomkitsapp.ui.authentication.RegisterActivity
@@ -20,11 +21,13 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        enableEdgeToEdge()
 
         setupView()
         setupAction()
         playAnimation()
     }
+
     private fun setupView() {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -37,11 +40,13 @@ class WelcomeActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
+
     private fun setupAction() {
         binding.goButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
+
     @SuppressLint("Recycle")
     private fun playAnimation() {
         ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
@@ -62,5 +67,5 @@ class WelcomeActivity : AppCompatActivity() {
             playSequentially(go)
             startDelay = 100
         }.start()
-        }
     }
+}

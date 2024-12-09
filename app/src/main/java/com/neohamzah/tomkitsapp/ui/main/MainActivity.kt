@@ -22,36 +22,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Install the splash screen
         installSplashScreen()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+        // Check the user session before setting the content view
         viewModel.getSession().observe(this) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
+            } else {
+                binding = ActivityMainBinding.inflate(layoutInflater)
+                setContentView(binding.root)
+
+                val navView: BottomNavigationView = binding.navView
+                val navController = findNavController(R.id.nav_host_fragment_activity_main)
+                navView.setupWithNavController(navController)
             }
         }
-
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-
-        navView.setupWithNavController(navController)
-
-//        setupAction()
     }
-
-//        private fun setupAction() {
-//            val fragmentManager = supportFragmentManager
-//            val profileFragment = ProfileFragment()
-//
-//            fragmentManager
-//                .beginTransaction()
-//                .replace(R.id.container, profileFragment, ProfileFragment::class.java.simpleName)
-//                .addToBackStack(null)
-//                .commit()
-//        }
-
 }
+

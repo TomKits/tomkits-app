@@ -13,6 +13,7 @@ import com.neohamzah.tomkitsapp.ui.scanQuality.ScanQualityViewModel
 
 class ViewModelFactory(
         private val repository: Repository,
+        private val userUploadRepository: UserUploadRepository
     ) : ViewModelProvider.NewInstanceFactory() {
 
         @Suppress("UNCHECKED_CAST")
@@ -28,7 +29,7 @@ class ViewModelFactory(
                     LoginViewModel(repository) as T
                 }
                 modelClass.isAssignableFrom(ScanDiseaseViewModel::class.java) -> {
-                    ScanDiseaseViewModel(repository) as T
+                    ScanDiseaseViewModel(repository, userUploadRepository) as T
                 }
                 modelClass.isAssignableFrom(ScanQualityViewModel::class.java) -> {
                     ScanQualityViewModel(repository) as T
@@ -44,7 +45,8 @@ class ViewModelFactory(
             fun getInstance(context: Context): ViewModelFactory {
                 return INSTANCE ?: synchronized(this) {
                     val repository = Injection.provideRepository(context)
-                    ViewModelFactory(repository).also {
+                    val userUploadRepository = Injection.provideUploadRepository()
+                    ViewModelFactory(repository, userUploadRepository).also {
                         INSTANCE = it
                     }
                 }

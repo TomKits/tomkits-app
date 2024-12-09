@@ -1,8 +1,10 @@
 package com.neohamzah.tomkitsapp.ui.scanDisease
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,12 +13,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.neohamzah.tomkitsapp.R
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.databinding.FragmentScanDiseaseBinding
+import com.neohamzah.tomkitsapp.ui.detailDisease.DetailDiseaseActivity
 import com.neohamzah.tomkitsapp.utils.getImageUri
+import com.neohamzah.tomkitsapp.utils.isNetworkAvailable
+import com.neohamzah.tomkitsapp.utils.reduceFileImage
+import com.neohamzah.tomkitsapp.utils.uriToFile
+import com.neohamzah.tomkitsapp.utils.Result
 
 class ScanDiseaseFragment : Fragment() {
 
@@ -49,6 +58,7 @@ class ScanDiseaseFragment : Fragment() {
         return root
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -56,9 +66,13 @@ class ScanDiseaseFragment : Fragment() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
+        if (viewModel.currentImageUri != null) {
+            binding.ivDisease.setImageURI(viewModel.currentImageUri)
+        }
+
         binding.btnGalery.setOnClickListener { startGallery() }
         binding.btnCamera.setOnClickListener { startCamera() }
-//        binding.btnDiagnose.setOnClickListener { startDiagnose() }
+        binding.btnDiagnose.setOnClickListener { startDiagnose() }
     }
 
     private fun startGallery() {
@@ -98,6 +112,48 @@ class ScanDiseaseFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun startDiagnose() {
+        viewModel.currentImageUri?.let { uri ->
+            val imageFile = uriToFile(uri, requireContext()).reduceFileImage()
+//            Log.d("Image File", "showImage: ${imageFile.path}")
+
+            if (!isNetworkAvailable(requireContext())) {
+                Toast.makeText(requireContext(), "No Internet Connection", Toast.LENGTH_SHORT).show()
+            } else {
+                viewModel.getSession().observe(viewLifecycleOwner) {session ->
+                    if (session.token.isNotEmpty()) {
+                        viewModel.imageUpload(imageFile, session.token).observe(viewLifecycleOwner) { result ->
+                            if (result != null) {
+                                when (result) {
+                                    is Result.Error -> {
+                                        showLoading(false)
+                                        showToast(result.error)
+                                    }
+                                    Result.Loading -> {
+                                        showLoading(true)
+                                    }
+                                    is Result.Success -> {
+                                        showLoading(false)
+                                        showToast("Scan Berhasil!")
+                                        val intent = Intent(requireActivity(), DetailDiseaseActivity::class.java)
+                                        intent.putExtra(DetailDiseaseActivity.EXTRA_CONFIDENCE, result.data.confidence)
+                                        intent.putExtra(DetailDiseaseActivity.EXTRA_DESCRIPTION, result.data.description)
+                                        intent.putExtra(DetailDiseaseActivity.EXTRA_DISEASE_NAME, result.data.diseaseName)
+                                        intent.putExtra(DetailDiseaseActivity.EXTRA_IMAGE, Uri.fromFile(imageFile).toString())
+//                                        intent.putExtra(DetailDiseaseActivity.EXTRA_PRODUCT_LIST, result.data.productList)
+                                        intent.putExtra(DetailDiseaseActivity.EXTRA_SOLUTION, result.data.solution)
+                                        startActivity(intent)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } ?: showToast(getString(R.string.app_name)) // image warning harusnya
+    }
+
     private fun allPermissionsGranted() =
         ContextCompat.checkSelfPermission(
             requireContext(),
@@ -111,6 +167,10 @@ class ScanDiseaseFragment : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     companion object {
