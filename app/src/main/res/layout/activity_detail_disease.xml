@@ -36,32 +36,62 @@
             app:srcCompat="@drawable/ic_place_holder" />
 
         <TextView
-            android:id="@+id/tv_disease"
+            android:id="@+id/tv_disease_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/jenis_penyakit"
             android:textAlignment="textStart"
             android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_margin="16dp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/iv_disease"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
-        <TextView
-            android:id="@+id/tv_detail_disease"
+        <LinearLayout
+            android:id="@+id/tv_disease"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/detail_disease"
-            android:textAlignment="textStart"
-            android:textSize="12sp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="4dp"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/tv_disease"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv_disease_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/tv_detail_disease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_disease"
+                android:layout_marginEnd="4dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_strip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/strip"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_confidence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/confidence_score"
+                android:layout_marginStart="4dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_description"
@@ -73,7 +103,7 @@
             android:textStyle="bold"
             android:layout_margin="16dp"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/tv_detail_disease"
+            app:layout_constraintTop_toBottomOf="@id/tv_disease"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
