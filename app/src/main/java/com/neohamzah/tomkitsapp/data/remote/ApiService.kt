@@ -4,11 +4,10 @@ import com.neohamzah.tomkitsapp.data.remote.response.LoginResponse
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
 import com.neohamzah.tomkitsapp.data.remote.response.UploadDiseaseResponse
+import com.neohamzah.tomkitsapp.data.remote.response.UploadQualityResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.Multipart
@@ -35,6 +34,13 @@ interface ApiService {
         @Part file: MultipartBody.Part,
         @Header("Authorization") token: String
     ): UploadDiseaseResponse
+
+    @Multipart
+    @POST("predict/tomato")
+    suspend fun uploadQuality(
+        @Part file: MultipartBody.Part,
+        @Header("Authorization") token: String
+    ): UploadQualityResponse
 }
 
 
