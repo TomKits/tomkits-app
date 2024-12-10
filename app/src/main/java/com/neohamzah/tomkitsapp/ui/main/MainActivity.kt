@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.neohamzah.tomkitsapp.R
@@ -17,28 +19,34 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(this)
     }
+
+    private lateinit var navController: NavController
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Install the splash screen
         installSplashScreen()
 
-        // Check the user session before setting the content view
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         viewModel.getSession().observe(this) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
-            } else {
-                binding = ActivityMainBinding.inflate(layoutInflater)
-                setContentView(binding.root)
-
-                val navView: BottomNavigationView = binding.navView
-                val navController = findNavController(R.id.nav_host_fragment_activity_main)
-                navView.setupWithNavController(navController)
             }
         }
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        navController = navHostFragment.navController
+
+        val navView: BottomNavigationView = binding.navView
+//
+//        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+//
+        navView.setupWithNavController(navController)
     }
 }
 

@@ -18,7 +18,7 @@
     <string name="jenis_penyakit">Jenis Penyakit</string>
     <string name="tanggal_scan">Tanggal Scan</string>
     <string name="gambar_scan">Gambar Scan</string>
-    <string name="quality_tomato">Quality: Good</string>
+    <string name="quality_tomato">Quality:</string>
     <string name="deskripsi">Deskripsi</string>
     <string name="detail_deskripsi">Ini adalah contoh dari deskripsi penyakit yang ada ya ges ya</string>
     <string name="detail_disease">Ini adalah contoh penyakit</string>
@@ -40,5 +40,8 @@
     <string name="hola">Hola!</string>
     <string name="strip">-</string>
     <string name="confidence_score">90% contoh</string>
+    <string name="example_quality">Ripe</string>
+    <string name="example_quality_confidence">99.384934</string>
+    <string name="type_tomato">Type:</string>
 
 </resources>
