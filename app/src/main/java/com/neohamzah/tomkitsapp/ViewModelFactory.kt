@@ -7,6 +7,7 @@ import com.neohamzah.tomkitsapp.data.repository.Repository
 import com.neohamzah.tomkitsapp.di.Injection
 import com.neohamzah.tomkitsapp.ui.authentication.LoginViewModel
 import com.neohamzah.tomkitsapp.ui.authentication.RegisterViewModel
+import com.neohamzah.tomkitsapp.ui.history.HistoryViewModel
 import com.neohamzah.tomkitsapp.ui.main.MainViewModel
 import com.neohamzah.tomkitsapp.ui.scanDisease.ScanDiseaseViewModel
 import com.neohamzah.tomkitsapp.ui.scanQuality.ScanQualityViewModel
@@ -33,6 +34,9 @@ class ViewModelFactory(
                 }
                 modelClass.isAssignableFrom(ScanQualityViewModel::class.java) -> {
                     ScanQualityViewModel(repository) as T
+                }
+                modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
+                    HistoryViewModel(repository, userUploadRepository) as T
                 }
                 else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
             }

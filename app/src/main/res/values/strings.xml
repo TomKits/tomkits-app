@@ -43,5 +43,6 @@
     <string name="example_quality">Ripe</string>
     <string name="example_quality_confidence">99.384934</string>
     <string name="type_tomato">Type:</string>
+    <string name="no_session">No session available. Please log in.</string>
 
 </resources>

@@ -1,13 +1,20 @@
 package com.neohamzah.tomkitsapp.ui.history
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.neohamzah.tomkitsapp.UserUploadRepository
+import com.neohamzah.tomkitsapp.data.pref.UserModel
+import com.neohamzah.tomkitsapp.data.repository.Repository
 
-class HistoryViewModel : ViewModel() {
+class HistoryViewModel (
+    private val repository: Repository,
+    private val userUploadRepository : UserUploadRepository
+) : ViewModel(){
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is History Fragment"
+    fun getSession(): LiveData<UserModel>{
+        return repository.getSession().asLiveData()
     }
-    val text: LiveData<String> = _text
+    fun getHistory(token: String) =repository.getHistory(token)
 }
+
