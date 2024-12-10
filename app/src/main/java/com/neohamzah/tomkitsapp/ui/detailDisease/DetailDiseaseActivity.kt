@@ -1,10 +1,10 @@
 package com.neohamzah.tomkitsapp.ui.detailDisease
 
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.neohamzah.tomkitsapp.databinding.ActivityDetailDiseaseBinding
+import java.io.File
 
 class DetailDiseaseActivity : AppCompatActivity() {
 
@@ -20,12 +20,14 @@ class DetailDiseaseActivity : AppCompatActivity() {
         val diseaseName = intent.getStringExtra(EXTRA_DISEASE_NAME)
 //        val productList = intent.getStringExtra(EXTRA_PRODUCT_LIST)
         val solution = intent.getStringExtra(EXTRA_SOLUTION)
-        val imageUriString = intent.getStringExtra(DetailDiseaseActivity.EXTRA_IMAGE)
-        val imageUri = Uri.parse(imageUriString)
 
-//        Glide.with(this)
-//            .load(imageUri)
-//            .into(binding.ivDisease) // Assuming you have an ImageView with id ivDisease
+        val imagePath = intent.getStringExtra(EXTRA_IMAGE)
+        val imageFile = imagePath?.let { File(it) }
+
+// Load the image into the ImageView using Glide or Picasso
+        Glide.with(this)
+            .load(imageFile)
+            .into(binding.ivDisease) // Assuming you have an ImageView with id ivDisease
 
         binding.tvDetailDisease.text = diseaseName
         binding.tvConfidence.text = confidence

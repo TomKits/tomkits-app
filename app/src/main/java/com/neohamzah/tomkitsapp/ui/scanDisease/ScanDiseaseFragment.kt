@@ -47,6 +47,15 @@ class ScanDiseaseFragment : Fragment() {
             }
         }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable("currentImageUri", viewModel.currentImageUri)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        viewModel.currentImageUri = savedInstanceState?.getParcelable("currentImageUri")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,9 +75,7 @@ class ScanDiseaseFragment : Fragment() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
-        if (viewModel.currentImageUri != null) {
-            binding.ivDisease.setImageURI(viewModel.currentImageUri)
-        }
+        viewModel.currentImageUri?.let { binding.ivDisease.setImageURI(it) }
 
         binding.btnGalery.setOnClickListener { startGallery() }
         binding.btnCamera.setOnClickListener { startCamera() }
@@ -136,11 +143,12 @@ class ScanDiseaseFragment : Fragment() {
                                     is Result.Success -> {
                                         showLoading(false)
                                         showToast("Scan Berhasil!")
+                                        val imagePath = imageFile.absolutePath
                                         val intent = Intent(requireActivity(), DetailDiseaseActivity::class.java)
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_CONFIDENCE, result.data.confidence)
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_DESCRIPTION, result.data.description)
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_DISEASE_NAME, result.data.diseaseName)
-                                        intent.putExtra(DetailDiseaseActivity.EXTRA_IMAGE, Uri.fromFile(imageFile).toString())
+                                        intent.putExtra(DetailDiseaseActivity.EXTRA_IMAGE, imagePath)
 //                                        intent.putExtra(DetailDiseaseActivity.EXTRA_PRODUCT_LIST, result.data.productList)
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_SOLUTION, result.data.solution)
                                         startActivity(intent)
