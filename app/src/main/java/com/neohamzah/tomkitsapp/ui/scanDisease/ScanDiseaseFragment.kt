@@ -21,11 +21,11 @@ import com.neohamzah.tomkitsapp.R
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.databinding.FragmentScanDiseaseBinding
 import com.neohamzah.tomkitsapp.ui.detailDisease.DetailDiseaseActivity
+import com.neohamzah.tomkitsapp.utils.Result
 import com.neohamzah.tomkitsapp.utils.getImageUri
 import com.neohamzah.tomkitsapp.utils.isNetworkAvailable
 import com.neohamzah.tomkitsapp.utils.reduceFileImage
 import com.neohamzah.tomkitsapp.utils.uriToFile
-import com.neohamzah.tomkitsapp.utils.Result
 
 class ScanDiseaseFragment : Fragment() {
 
