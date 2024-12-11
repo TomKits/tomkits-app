@@ -32,7 +32,7 @@ class ViewModelFactory(
                     ScanDiseaseViewModel(repository, userUploadRepository) as T
                 }
                 modelClass.isAssignableFrom(ScanQualityViewModel::class.java) -> {
-                    ScanQualityViewModel(repository) as T
+                    ScanQualityViewModel(repository, userUploadRepository) as T
                 }
                 else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
             }
