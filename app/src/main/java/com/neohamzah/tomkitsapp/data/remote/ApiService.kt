@@ -6,6 +6,7 @@ import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
 import com.neohamzah.tomkitsapp.data.remote.response.UploadDiseaseResponse
 import com.neohamzah.tomkitsapp.data.remote.response.UploadQualityResponse
+import com.neohamzah.tomkitsapp.data.remote.response.UserResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -30,6 +31,11 @@ interface ApiService {
         @Body requestBody: Map<String, String>
     ): Response<LoginResponse>
 
+    @GET("auth/whoami")
+    suspend fun getUserInfo(
+        @Header("Authorization") token: String,
+    ): UserResponse
+
     @Multipart
     @POST("predict/disease")
     suspend fun uploadDisease(
@@ -48,6 +54,7 @@ interface ApiService {
     suspend fun getAllHistory(
         @Header("Authorization") token: String,
     ): HistoryResponse
+
 }
 
 
