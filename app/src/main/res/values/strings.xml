@@ -15,17 +15,17 @@
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="history">History</string>
-    <string name="jenis_penyakit">Jenis Penyakit</string>
-    <string name="tanggal_scan">Tanggal Scan</string>
-    <string name="gambar_scan">Gambar Scan</string>
+    <string name="jenis_penyakit">Disease Name</string>
+    <string name="tanggal_scan">Date Scan</string>
+    <string name="gambar_scan">Image Scan</string>
     <string name="quality_tomato">Quality:</string>
-    <string name="deskripsi">Deskripsi</string>
+    <string name="deskripsi">Description</string>
     <string name="detail_deskripsi">Ini adalah contoh dari deskripsi penyakit yang ada ya ges ya</string>
     <string name="detail_disease">Ini adalah contoh penyakit</string>
-    <string name="solusi">Solusi</string>
+    <string name="solusi">Solution</string>
     <string name="detail_solusi">Ini adalah contoh solusi dari penyakit yang dideteksi</string>
-    <string name="rekomendasi_produk">Rekomendasi Produk:</string>
-    <string name="nama_produk">Nama Produk</string>
+    <string name="rekomendasi_produk">Product Recomendation:</string>
+    <string name="nama_produk">Product Name</string>
     <string name="hey">Hey,</string>
     <string name="welcome_back">Welcome Back!</string>
     <string name="login">Login</string>
@@ -45,5 +45,4 @@
     <string name="type_tomato">Type:</string>
     <string name="no_session">No session available. Please log in.</string>
     <string name="logout">Logout</string>
-
 </resources>

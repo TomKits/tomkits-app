@@ -15,6 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.neohamzah.tomkitsapp.data.remote.response.HistoriesItem
 import com.neohamzah.tomkitsapp.databinding.ItemHistoryBinding
 import com.neohamzah.tomkitsapp.ui.detailDisease.DetailDiseaseActivity
+import com.neohamzah.tomkitsapp.utils.filterString
 
 class Adapter : ListAdapter<HistoriesItem, Adapter.MyViewHolder>(DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -31,7 +32,7 @@ class Adapter : ListAdapter<HistoriesItem, Adapter.MyViewHolder>(DIFF_CALLBACK) 
         private val binding: ItemHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(history: HistoriesItem) {
-            binding.textViewName.text = history.diseaseName
+            binding.textViewName.text = history.diseaseName?.let { filterString(it) }
             binding.textViewType.text = history.diseaseName
             Glide.with(itemView.context)
                 .load(history.imageLink)

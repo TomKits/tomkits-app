@@ -123,3 +123,12 @@ fun rotateImage(source: Bitmap, angle: Float): Bitmap {
 fun dpToPx(dp: Int, context: Context): Int {
     return (dp * context.resources.displayMetrics.density).toInt()
 }
+
+fun filterString(input: String): String {
+    return input.split("_").joinToString(" ") { it.capitalize(Locale.ROOT) }
+}
+
+fun formatConfidenceScore(score: String): String {
+    return "${score.toFloat()}%"
+}
+
