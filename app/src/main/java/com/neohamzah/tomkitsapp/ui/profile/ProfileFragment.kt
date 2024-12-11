@@ -32,8 +32,16 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
         observeData()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnLogout.setOnClickListener {
+            viewModel.logout()
+            Toast.makeText(context, getString(R.string.logout), Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun observeData() {
