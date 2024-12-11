@@ -8,6 +8,7 @@ import com.neohamzah.tomkitsapp.data.remote.ApiService
 import com.neohamzah.tomkitsapp.data.remote.response.HistoryResponse
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
+import com.neohamzah.tomkitsapp.data.remote.response.UserResponse
 import com.neohamzah.tomkitsapp.utils.Result
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
@@ -29,6 +30,7 @@ class Repository private constructor(
             Result.Error(e.message ?: "Network error")
         }
     }
+
     fun login(email: String, password: String) = liveData {
         emit(Result.Loading)
 
@@ -69,6 +71,19 @@ class Repository private constructor(
         } catch (e: HttpException){
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, HistoryResponse::class.java)
+            emit(Result.Error("Exception: ${e.message ?: "Unknown error"}"))
+        }
+    }
+
+    fun getUserInfo(token: String) = liveData {
+        emit(Result.Loading)
+
+        try {
+            val response = apiService.getUserInfo("Bearer $token")
+            emit(Result.Success(response))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, UserResponse::class.java)
             emit(Result.Error("Exception: ${e.message ?: "Unknown error"}"))
         }
     }
