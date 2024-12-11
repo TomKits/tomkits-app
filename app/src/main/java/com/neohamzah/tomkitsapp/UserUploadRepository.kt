@@ -33,6 +33,25 @@ class UserUploadRepository private constructor(
     }
 }
 
+    fun imageUploadQuality(imageFile: File, token:String) = liveData {
+        emit(Result.Loading)
+        val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+        val multipartBody = MultipartBody.Part.createFormData(
+            "file",
+            imageFile.name,
+            requestImageFile
+        )
+        try {
+            val successResponse = apiService.uploadQuality(multipartBody, "Bearer $token")
+            emit(Result.Success(successResponse))
+        } catch (e:HttpException){
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, UploadDiseaseResponse::class.java)
+            emit(Result.Error(errorResponse.message.toString()))
+
+        }
+    }
+
     companion object {
         @Volatile
         private var instance: UserUploadRepository? = null

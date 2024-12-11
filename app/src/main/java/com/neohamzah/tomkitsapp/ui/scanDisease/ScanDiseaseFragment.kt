@@ -99,7 +99,7 @@ class ScanDiseaseFragment : Fragment() {
 
     private fun showImage() {
         viewModel.currentImageUri?.let {
-            Log.d("Image URI", "showImage: $it")
+//            Log.d("Image URI", "showImage: $it")
             binding.ivDisease.setImageURI(it)
         }
     }
