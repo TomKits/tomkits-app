@@ -1,7 +1,6 @@
 package com.neohamzah.tomkitsapp.ui.scanQuality
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -14,17 +13,13 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.neohamzah.tomkitsapp.R
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.data.remote.response.UploadQualityResponse
 import com.neohamzah.tomkitsapp.databinding.FragmentScanQualityBinding
-import com.neohamzah.tomkitsapp.ui.detailDisease.DetailDiseaseActivity
 import com.neohamzah.tomkitsapp.utils.Result
 import com.neohamzah.tomkitsapp.utils.dpToPx
 import com.neohamzah.tomkitsapp.utils.getImageUri
