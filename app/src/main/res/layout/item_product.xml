@@ -44,10 +44,25 @@
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/imageViewArrow"
-                app:layout_constraintStart_toEndOf="@+id/img_photo"
                 app:layout_constraintTop_toTopOf="@+id/img_photo"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toTopOf="@+id/textViewIngredients"
+                app:layout_constraintStart_toEndOf="@+id/img_photo"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewArrow" />
+
+            <TextView
+                android:id="@+id/textViewIngredients"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="13dp"
+                android:text="Active Ingredient: @string/product_ingredient"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewName"
+                app:layout_constraintBottom_toBottomOf="@+id/img_photo"
+                app:layout_constraintStart_toEndOf="@+id/img_photo"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewArrow" />
 
             <ImageView
                 android:id="@+id/imageViewArrow"

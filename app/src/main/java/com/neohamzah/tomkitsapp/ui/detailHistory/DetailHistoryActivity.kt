@@ -24,6 +24,7 @@ import com.neohamzah.tomkitsapp.ProductAdapter
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.databinding.ActivityDetailHistoryBinding
 import com.neohamzah.tomkitsapp.utils.Result
+import com.neohamzah.tomkitsapp.utils.filterString
 
 class DetailHistoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailHistoryBinding
@@ -48,7 +49,7 @@ class DetailHistoryActivity : AppCompatActivity() {
             insets
         }
         supportActionBar?.apply {
-            title = "Your Story Detail"
+            title = "Your History Detail"
             setDisplayHomeAsUpEnabled(true)
         }
 
@@ -74,7 +75,6 @@ class DetailHistoryActivity : AppCompatActivity() {
                             is Result.Success -> {
                                 binding.progressBar.visibility = View.GONE
                                 val data = result.data
-
 
                                 Glide.with(this@DetailHistoryActivity)
                                     .load(data.imageLink)
@@ -109,7 +109,11 @@ class DetailHistoryActivity : AppCompatActivity() {
                                     })
                                     .into(binding.ivDisease)
 
-                                binding.tvDetailDisease.text = data.diseaseName
+                                binding.tvDetailDisease.text = data.diseaseName?.let {
+                                    filterString(
+                                        it
+                                    )
+                                }
                                 binding.tvConfidence.text = data.confidence
                                 binding.tvDetailDescription.text = data.description
                                 binding.tvDetailSolution.text = data.solution
@@ -145,6 +149,7 @@ class DetailHistoryActivity : AppCompatActivity() {
                                         LinearLayoutManager.VERTICAL,
                                         false
                                     )
+                                    binding.recyclerView.isNestedScrollingEnabled = false
                                     binding.recyclerView.adapter = productAdapter
                                     productAdapter.submitList(data.productList.mapNotNull { it })
                                 }
@@ -154,9 +159,7 @@ class DetailHistoryActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
