@@ -1,16 +1,20 @@
-package com.neohamzah.tomkitsapp.ui.authentication
+package com.neohamzah.tomkitsapp.ui.authentication.register
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.databinding.ActivityRegisterBinding
+import com.neohamzah.tomkitsapp.ui.authentication.login.LoginActivity
 import com.neohamzah.tomkitsapp.utils.Result
+import com.neohamzah.tomkitsapp.utils.isNetworkAvailable
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -19,16 +23,19 @@ class RegisterActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(this)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         enableEdgeToEdge()
 
         setupAction()
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun setupAction() {
         binding.btnRegister.setOnClickListener {
             val username = binding.etUsername.text.toString().trim()
@@ -43,7 +50,10 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        viewModel.registerResult.observe(this) { result ->
+        if (!isNetworkAvailable(this)) {
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
+        } else {
+            viewModel.registerResult.observe(this) { result ->
                 when (result) {
                     is Result.Loading -> showLoading(true)
                     is Result.Success -> {
@@ -51,7 +61,7 @@ class RegisterActivity : AppCompatActivity() {
                         AlertDialog.Builder(this).apply {
                             setTitle("Yeah!")
                             setMessage(result.data.message)
-                                setPositiveButton("Next") { _, _ ->
+                            setPositiveButton("Next") { _, _ ->
                                 val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                                 startActivity(intent)
                                 finish()
@@ -67,6 +77,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
+     }
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }

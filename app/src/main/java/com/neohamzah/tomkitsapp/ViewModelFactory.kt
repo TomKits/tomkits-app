@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.neohamzah.tomkitsapp.data.repository.Repository
 import com.neohamzah.tomkitsapp.di.Injection
-import com.neohamzah.tomkitsapp.ui.authentication.LoginViewModel
-import com.neohamzah.tomkitsapp.ui.authentication.RegisterViewModel
+import com.neohamzah.tomkitsapp.ui.authentication.login.LoginViewModel
+import com.neohamzah.tomkitsapp.ui.authentication.register.RegisterViewModel
 import com.neohamzah.tomkitsapp.ui.detailHistory.DetailHistoryViewModel
 import com.neohamzah.tomkitsapp.ui.history.HistoryViewModel
 import com.neohamzah.tomkitsapp.ui.main.MainViewModel
