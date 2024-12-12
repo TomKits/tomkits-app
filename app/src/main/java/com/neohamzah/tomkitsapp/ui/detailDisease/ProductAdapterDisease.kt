@@ -1,4 +1,4 @@
-package com.neohamzah.tomkitsapp
+package com.neohamzah.tomkitsapp.ui.detailDisease
 
 import android.content.Intent
 import android.net.Uri
@@ -9,17 +9,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.neohamzah.tomkitsapp.data.remote.response.ProductListItem
+import com.neohamzah.tomkitsapp.data.remote.response.ProductList
 import com.neohamzah.tomkitsapp.databinding.ItemProductBinding
+import com.neohamzah.tomkitsapp.utils.normalizeUrl
 
 class ProductAdapter(
-    private val onItemClick: (ProductListItem) -> Unit = {}
-) : ListAdapter<ProductListItem, ProductAdapter.ProductViewHolder>(DiffCallback()) {
+    private val onItemClick: (ProductList) -> Unit = {}
+) : ListAdapter<ProductList, ProductAdapter.ProductViewHolder>(DiffCallback()) {
 
     inner class ProductViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(product: ProductListItem) {
+        fun bind(product: ProductList) {
             binding.textViewName.text = product.productName
             binding.textViewIngredients.text = "Active Ingredient: ${ product.activeIngredient }"
             Glide.with(binding.imgPhoto.context)
@@ -39,15 +40,7 @@ class ProductAdapter(
             }
         }
     }
-    private fun normalizeUrl(url: String?): String? {
-        return url?.let {
-            if (!it.startsWith("http://") && !it.startsWith("https://")) {
-                "https://$it"
-            } else {
-                it
-            }
-        }
-    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding = ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ProductViewHolder(binding)
@@ -57,12 +50,12 @@ class ProductAdapter(
         holder.bind(getItem(position))
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<ProductListItem>() {
-        override fun areItemsTheSame(oldItem: ProductListItem, newItem: ProductListItem): Boolean {
+    class DiffCallback : DiffUtil.ItemCallback<ProductList>() {
+        override fun areItemsTheSame(oldItem: ProductList, newItem: ProductList): Boolean {
             return oldItem.productName == newItem.productName
         }
 
-        override fun areContentsTheSame(oldItem: ProductListItem, newItem: ProductListItem): Boolean {
+        override fun areContentsTheSame(oldItem: ProductList, newItem: ProductList): Boolean {
             return oldItem == newItem
         }
     }

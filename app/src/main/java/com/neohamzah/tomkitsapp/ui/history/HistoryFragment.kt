@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neohamzah.tomkitsapp.Adapter
 import com.neohamzah.tomkitsapp.R
 import com.neohamzah.tomkitsapp.ViewModelFactory
 import com.neohamzah.tomkitsapp.databinding.FragmentHistoryBinding

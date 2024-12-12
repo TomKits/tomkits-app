@@ -1,6 +1,8 @@
 package com.neohamzah.tomkitsapp.data.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class UploadDiseaseResponse (
     @field:SerializedName("confidence")
@@ -22,6 +24,7 @@ data class UploadDiseaseResponse (
     val message: String? = null
 )
 
+@Parcelize
 data class ProductList (
     @field:SerializedName("active_ingredient")
     val activeIngredient: String? = null,
@@ -34,4 +37,4 @@ data class ProductList (
 
     @field:SerializedName("product_name")
     val productName: String? = null,
-)
+) : Parcelable

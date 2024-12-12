@@ -26,6 +26,7 @@ import com.neohamzah.tomkitsapp.utils.getImageUri
 import com.neohamzah.tomkitsapp.utils.isNetworkAvailable
 import com.neohamzah.tomkitsapp.utils.reduceFileImage
 import com.neohamzah.tomkitsapp.utils.uriToFile
+import java.util.ArrayList
 
 class ScanDiseaseFragment : Fragment() {
 
@@ -149,7 +150,7 @@ class ScanDiseaseFragment : Fragment() {
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_DESCRIPTION, result.data.description)
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_DISEASE_NAME, result.data.diseaseName)
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_IMAGE, imagePath)
-//                                        intent.putExtra(DetailDiseaseActivity.EXTRA_PRODUCT_LIST, result.data.productList)
+                                        intent.putParcelableArrayListExtra(DetailDiseaseActivity.EXTRA_PRODUCT_LIST, ArrayList(result.data.productList))
                                         intent.putExtra(DetailDiseaseActivity.EXTRA_SOLUTION, result.data.solution)
                                         startActivity(intent)
                                     }
