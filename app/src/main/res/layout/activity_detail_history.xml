@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.detailHistory.DetailHistoryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@mipmap/ic_launcher_foreground"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_disease"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/gambar_scan"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_disease"
+            app:srcCompat="@drawable/ic_place_holder" />
+
+        <TextView
+            android:id="@+id/tv_disease_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jenis_penyakit"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/iv_disease"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <LinearLayout
+            android:id="@+id/tv_disease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv_disease_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/tv_detail_disease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_disease"
+                android:layout_marginEnd="4dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_strip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/strip"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_confidence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/confidence_score"
+                android:layout_marginStart="4dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/deskripsi"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tv_disease"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_detail_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_deskripsi"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tv_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_solution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/solusi"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_detail_solution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_solusi"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tv_solution"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_recommendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rekomendasi_produk"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_solution"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_recommendation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_product" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

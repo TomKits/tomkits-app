@@ -17,5 +17,8 @@ data class HistoriesItem(
 	val diseaseName: String? = null,
 
 	@field:SerializedName("id")
-	val id: String? = null
+	val id: String? = null,
+
+	@field:SerializedName("created_at")
+	val createdAt: String? = null
 )

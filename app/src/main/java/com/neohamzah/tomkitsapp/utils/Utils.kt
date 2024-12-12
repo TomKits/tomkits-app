@@ -123,3 +123,4 @@ fun rotateImage(source: Bitmap, angle: Float): Bitmap {
 fun dpToPx(dp: Int, context: Context): Int {
     return (dp * context.resources.displayMetrics.density).toInt()
 }
+

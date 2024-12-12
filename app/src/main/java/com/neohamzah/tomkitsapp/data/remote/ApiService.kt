@@ -1,5 +1,6 @@
 package com.neohamzah.tomkitsapp.data.remote
 
+import com.neohamzah.tomkitsapp.data.remote.response.DetailHistoryResponse
 import com.neohamzah.tomkitsapp.data.remote.response.HistoryResponse
 import com.neohamzah.tomkitsapp.data.remote.response.LoginResponse
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
@@ -16,6 +17,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 
 
 interface ApiService {
@@ -55,6 +57,11 @@ interface ApiService {
         @Header("Authorization") token: String,
     ): HistoryResponse
 
+    @GET("predict/history/{prediction_id}")
+    suspend fun getDetailHistory(
+        @Header("Authorization") token: String,
+        @Path("prediction_id") predictionId: String
+    ): DetailHistoryResponse
 }
 
 

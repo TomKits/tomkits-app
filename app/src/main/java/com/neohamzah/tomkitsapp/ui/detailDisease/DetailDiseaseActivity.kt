@@ -44,5 +44,6 @@ class DetailDiseaseActivity : AppCompatActivity() {
 //        const val EXTRA_PRODUCT_LIST
         const val EXTRA_SOLUTION = "extra_solution"
 
+
     }
 }
