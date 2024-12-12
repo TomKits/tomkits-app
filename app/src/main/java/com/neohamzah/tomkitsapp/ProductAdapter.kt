@@ -21,6 +21,7 @@ class ProductAdapter(
 
         fun bind(product: ProductListItem) {
             binding.textViewName.text = product.productName
+            binding.textViewIngredients.text = "Active Ingredient: ${ product.activeIngredient }"
             Glide.with(binding.imgPhoto.context)
                 .load(product.productImage)
                 .into(binding.imgPhoto)
