@@ -78,4 +78,7 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.androidx.datastore.preferences)
+
+    implementation("com.airbnb.android:lottie:5.2.0")
+
 }
