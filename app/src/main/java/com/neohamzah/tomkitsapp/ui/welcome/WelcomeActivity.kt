@@ -12,7 +12,7 @@ import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.neohamzah.tomkitsapp.databinding.ActivityWelcomeBinding
-import com.neohamzah.tomkitsapp.ui.authentication.RegisterActivity
+import com.neohamzah.tomkitsapp.ui.authentication.register.RegisterActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding

@@ -1,4 +1,4 @@
-package com.neohamzah.tomkitsapp.ui.authentication
+package com.neohamzah.tomkitsapp.ui.authentication.register
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

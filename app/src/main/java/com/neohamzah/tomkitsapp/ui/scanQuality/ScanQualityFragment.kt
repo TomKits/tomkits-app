@@ -170,7 +170,7 @@ class ScanQualityFragment : Fragment() {
                     }
                 }
             }
-        } ?: showToast(getString(R.string.app_name)) // image warning harusnya
+        } ?: showToast(getString(R.string.image_warning))
     }
 
     private fun allPermissionsGranted() =
