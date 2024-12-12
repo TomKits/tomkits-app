@@ -6,6 +6,7 @@ data class HistoryResponse(
 
 	@field:SerializedName("histories")
 	val histories: List<HistoriesItem?>? = null
+
 )
 
 data class HistoriesItem(
@@ -21,4 +22,5 @@ data class HistoriesItem(
 
 	@field:SerializedName("created_at")
 	val createdAt: String? = null
+
 )

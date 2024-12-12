@@ -123,8 +123,7 @@
             android:text="@string/quality_tomato"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:layout_marginEnd="8sp"
-            android:textColor="@color/black" />
+            android:layout_marginEnd="8sp" />
 
         <TextView
             android:id="@+id/tv_detail_quality"
@@ -133,8 +132,7 @@
             android:text="@string/example_quality"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:layout_marginEnd="8sp"
-            android:textColor="@color/black" />
+            android:layout_marginEnd="8sp" />
 
         <TextView
             android:id="@+id/tv_detail_quality_strip"
@@ -143,8 +141,7 @@
             android:text="@string/strip"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:layout_marginEnd="8sp"
-            android:textColor="@color/black" />
+            android:layout_marginEnd="8sp" />
 
         <TextView
             android:id="@+id/tv_detail_quality_confidence"
@@ -152,8 +149,7 @@
             android:layout_height="wrap_content"
             android:text="@string/example_quality_confidence"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColor="@color/black" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -178,8 +174,7 @@
             android:text="@string/type_tomato"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:layout_marginEnd="8sp"
-            android:textColor="@color/black" />
+            android:layout_marginEnd="8sp" />
 
         <TextView
             android:id="@+id/tv_detail_type"
@@ -188,8 +183,7 @@
             android:text="@string/example_quality"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:layout_marginEnd="8sp"
-            android:textColor="@color/black" />
+            android:layout_marginEnd="8sp" />
 
         <TextView
             android:id="@+id/tv_detail_type_strip"
@@ -198,8 +192,7 @@
             android:text="@string/strip"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:layout_marginEnd="8sp"
-            android:textColor="@color/black" />
+            android:layout_marginEnd="8sp" />
 
         <TextView
             android:id="@+id/tv_detail_type_confidence"
@@ -207,8 +200,7 @@
             android:layout_height="wrap_content"
             android:text="@string/example_quality_confidence"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColor="@color/black" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

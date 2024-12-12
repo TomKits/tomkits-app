@@ -1,4 +1,4 @@
-package com.neohamzah.tomkitsapp
+package com.neohamzah.tomkitsapp.ui.history
 
 import android.annotation.SuppressLint
 import android.app.Activity

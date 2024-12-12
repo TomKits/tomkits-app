@@ -10,7 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/logo"
@@ -44,11 +45,9 @@
             android:textSize="16sp"
             android:layout_margin="16dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/iv_disease"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <LinearLayout
             android:id="@+id/tv_disease"
@@ -59,8 +58,7 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/tv_disease_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            >
+            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:id="@+id/tv_detail_disease"
@@ -69,8 +67,7 @@
                 android:text="@string/detail_disease"
                 android:layout_marginEnd="4dp"
                 android:textAlignment="textStart"
-                android:textSize="12sp"
-                android:textColor="@color/black" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_strip"
@@ -78,8 +75,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strip"
                 android:textAlignment="textStart"
-                android:textSize="12sp"
-                android:textColor="@color/black" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_confidence"
@@ -88,8 +84,7 @@
                 android:text="@string/confidence_score"
                 android:layout_marginStart="4dp"
                 android:textAlignment="textStart"
-                android:textSize="12sp"
-                android:textColor="@color/black" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -102,7 +97,6 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_margin="16dp"
-            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/tv_disease"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -116,7 +110,6 @@
             android:textSize="12sp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="4dp"
-            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/tv_description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -130,7 +123,6 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_margin="16dp"
-            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/tv_detail_description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -144,7 +136,6 @@
             android:textSize="12sp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="4dp"
-            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/tv_solution"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -158,19 +149,18 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_margin="16dp"
-            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/tv_detail_solution"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="8dp"
+            android:nestedScrollingEnabled="false"
             app:layout_constraintTop_toBottomOf="@id/tv_recommendation"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:listitem="@layout/item_product" />

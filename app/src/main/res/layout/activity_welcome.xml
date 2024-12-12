@@ -40,8 +40,7 @@
                 android:id="@+id/titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome Tomato Lovers!"
-                android:textColor="@color/black"
+                android:text="@string/welcome_tomato_lovers"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center" />
@@ -50,11 +49,10 @@
                 android:id="@+id/descTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your smart assistant for perfect tomatoes! Diagnose diseases, check quality and ensure the best harvest every time."
+                android:text="@string/your_smart_assistant_for_perfect_tomatoes_diagnose_diseases_check_quality_and_ensure_the_best_harvest_every_time"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:textColor="@color/black" />
+                android:gravity="center" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -63,7 +61,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="LET'S GO!"
+        android:text="@string/let_s_go"
         android:alpha="0"
         android:backgroundTint="@color/primaryRed"
         android:textColor="@color/white"
