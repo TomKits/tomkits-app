@@ -18,6 +18,7 @@
         android:text="@string/hola"
         android:textColor="@color/white"
         android:textSize="56sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_sub_greeting" />
 
