@@ -22,6 +22,8 @@ import com.neohamzah.tomkitsapp.data.remote.response.UploadQualityResponse
 import com.neohamzah.tomkitsapp.databinding.FragmentScanQualityBinding
 import com.neohamzah.tomkitsapp.utils.Result
 import com.neohamzah.tomkitsapp.utils.dpToPx
+import com.neohamzah.tomkitsapp.utils.filterString
+import com.neohamzah.tomkitsapp.utils.formatConfidenceScore
 import com.neohamzah.tomkitsapp.utils.getImageUri
 import com.neohamzah.tomkitsapp.utils.isNetworkAvailable
 import com.neohamzah.tomkitsapp.utils.reduceFileImage
@@ -94,10 +96,10 @@ class ScanQualityFragment : Fragment() {
         binding.tvResultType.layoutParams = params
         binding.tvResultQuality.visibility = View.VISIBLE
         binding.tvResultType.visibility = View.VISIBLE
-        binding.tvDetailQuality.text = result.quality?.classQuality
-        binding.tvDetailQualityConfidence.text = result.quality?.confidenceQuality
-        binding.tvDetailType.text = result.type?.classType
-        binding.tvDetailTypeConfidence.text = result.type?.confidenceType
+        binding.tvDetailQuality.text = result.quality?.classQuality?.let { filterString(it) }
+        binding.tvDetailQualityConfidence.text = result.quality?.confidenceQuality?.let { formatConfidenceScore(it) }
+        binding.tvDetailType.text = result.type?.classType?.let { filterString(it)}
+        binding.tvDetailTypeConfidence.text = result.type?.confidenceType?.let { formatConfidenceScore(it) }
     }
 
     private fun startGallery() {
