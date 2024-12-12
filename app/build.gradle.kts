@@ -62,11 +62,14 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.glide)
-    kapt("com.github.bumptech.glide:compiler:4.15.1")
+
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1") 
+
 
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+
 
     // Logging Interceptor
     implementation(libs.logging.interceptor)

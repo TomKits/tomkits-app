@@ -9,8 +9,8 @@ import com.neohamzah.tomkitsapp.UserUploadRepository
 import com.neohamzah.tomkitsapp.data.pref.UserModel
 import com.neohamzah.tomkitsapp.data.remote.response.UploadQualityResponse
 import com.neohamzah.tomkitsapp.data.repository.Repository
-import java.io.File
 import com.neohamzah.tomkitsapp.utils.Result
+import java.io.File
 
 class ScanQualityViewModel(
     private val repository: Repository,

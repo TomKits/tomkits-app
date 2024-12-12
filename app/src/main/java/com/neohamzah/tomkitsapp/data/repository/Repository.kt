@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.neohamzah.tomkitsapp.data.pref.UserModel
 import com.neohamzah.tomkitsapp.data.pref.UserPreference
 import com.neohamzah.tomkitsapp.data.remote.ApiService
+import com.neohamzah.tomkitsapp.data.remote.response.DetailHistoryResponse
 import com.neohamzah.tomkitsapp.data.remote.response.HistoryResponse
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterRequest
 import com.neohamzah.tomkitsapp.data.remote.response.RegisterResponse
@@ -87,7 +88,17 @@ class Repository private constructor(
             emit(Result.Error("Exception: ${e.message ?: "Unknown error"}"))
         }
     }
-
+    fun getDetailStory(id: String, token: String) = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getDetailHistory("Bearer $token", id)
+            emit(Result.Success(response))
+        }catch (e:HttpException){
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, DetailHistoryResponse::class.java)
+            emit(Result.Error("Exception: ${e.message ?: "Unknown error"}"))
+        }
+    }
     private fun parseError(e: HttpException): String {
         val errorBody = e.response()?.errorBody()?.string()
         return if (!errorBody.isNullOrEmpty()) {

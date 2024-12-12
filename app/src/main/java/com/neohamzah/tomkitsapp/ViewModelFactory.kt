@@ -7,6 +7,7 @@ import com.neohamzah.tomkitsapp.data.repository.Repository
 import com.neohamzah.tomkitsapp.di.Injection
 import com.neohamzah.tomkitsapp.ui.authentication.LoginViewModel
 import com.neohamzah.tomkitsapp.ui.authentication.RegisterViewModel
+import com.neohamzah.tomkitsapp.ui.detailHistory.DetailHistoryViewModel
 import com.neohamzah.tomkitsapp.ui.history.HistoryViewModel
 import com.neohamzah.tomkitsapp.ui.main.MainViewModel
 import com.neohamzah.tomkitsapp.ui.profile.ProfileViewModel
@@ -41,6 +42,9 @@ class ViewModelFactory(
                 }
                 modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                     ProfileViewModel(repository) as T
+                }
+                modelClass.isAssignableFrom(DetailHistoryViewModel::class.java) -> {
+                    DetailHistoryViewModel(repository) as T
                 }
                 else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
             }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.neohamzah.tomkitsapp.databinding.ActivityDetailDiseaseBinding
-import com.neohamzah.tomkitsapp.utils.filterString
 import java.io.File
 
 class DetailDiseaseActivity : AppCompatActivity() {
@@ -30,7 +29,7 @@ class DetailDiseaseActivity : AppCompatActivity() {
             .load(imageFile)
             .into(binding.ivDisease) // Assuming you have an ImageView with id ivDisease
 
-        binding.tvDetailDisease.text = filterString(diseaseName.toString())
+        binding.tvDetailDisease.text = diseaseName
         binding.tvConfidence.text = confidence
         binding.tvDetailDescription.text = description
         binding.tvDetailSolution.text = solution
@@ -44,6 +43,7 @@ class DetailDiseaseActivity : AppCompatActivity() {
         const val EXTRA_IMAGE = "extra_image"
 //        const val EXTRA_PRODUCT_LIST
         const val EXTRA_SOLUTION = "extra_solution"
+
 
     }
 }
