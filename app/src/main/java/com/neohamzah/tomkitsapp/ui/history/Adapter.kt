@@ -16,6 +16,7 @@ import com.neohamzah.tomkitsapp.databinding.ItemHistoryBinding
 import com.neohamzah.tomkitsapp.ui.detailHistory.DetailHistoryActivity
 import com.neohamzah.tomkitsapp.ui.detailHistory.DetailHistoryActivity.Companion.EXTRA_ID
 import com.neohamzah.tomkitsapp.utils.filterString
+import com.neohamzah.tomkitsapp.utils.processDateString
 
 class Adapter : ListAdapter<HistoriesItem, Adapter.MyViewHolder>(DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -34,7 +35,7 @@ class Adapter : ListAdapter<HistoriesItem, Adapter.MyViewHolder>(DIFF_CALLBACK) 
         fun bind(history: HistoriesItem) {
             binding.textViewName.text = history.diseaseName?.let { filterString(it) }
             binding.textViewType.text = history.diseaseName
-            binding.textViewType.text = history.createdAt
+            binding.textViewType.text = history.createdAt?.let { processDateString(it) }
             Glide.with(itemView.context)
                 .load(history.imageLink)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
